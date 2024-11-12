@@ -1,0 +1,479 @@
+/* Example CSS */
+/* Light Theme */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* theme class for navbar */
+
+body.light .navbar,
+.formik-form {
+  background-color: #f8f9fa;
+  color: #000000;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .navbar,
+.formik-form {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* classes for footer */
+footer {
+  margin-top: auto;
+  color: #ccc;
+}
+
+footer a {
+  margin-right: 1rem;
+}
+
+/* Make sure the arrows and dots are visible */
+body.light .slick-prev:before,
+.slick-next:before {
+  color: black;
+  font-size: 20px;
+}
+
+body.light .slick-dots li button:before {
+  color: black;
+}
+
+body.dark .slick-prev:before,
+.slick-next:before {
+  color: white;
+  font-size: 20px;
+}
+
+body.dark .slick-dots li button:before {
+  color: white;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slider-container {
+  margin: 0 -10px;
+}
+
+.slider-container {
+  position: relative;
+  padding-left: 2rem;
+}
+
+body.dark .horizontal-line {
+  border-top: 2px solid hsla(0, 0%, 55%, 0.6);
+}
+
+body.light .horizontal-line {
+  border-top: 2px solid black;
+}
+
+/* card css */
+/* Card Styles for Light Theme */
+
+.slider-container .card {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  cursor: pointer;
+}
+
+.slider-container .card:hover {
+  transform: scale(1.05); /* Slightly increases size on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+body.light .slider-container .card {
+  background-color: #ffffff; /* Light background for card */
+  color: #000000;
+  border: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+body.light .slider-container .card .card-title {
+  color: #000000; /* Dark color for card title */
+}
+
+body.light .slider-container .card .card-text {
+  color: #333333; /* Slightly lighter color for card text */
+}
+
+/* Dark Theme Styles (as before) */
+
+body.dark .slider-container .card {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border: none;
+}
+
+body.dark .slider-container .card .card-title {
+  color: #ffffff;
+}
+
+body.dark .slider-container .card .card-text {
+  color: #ffffff;
+}
+
+/* network page css */
+.network-container .card {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  cursor: pointer;
+}
+
+.network-container .card:hover {
+  transform: scale(1.05); /* Slightly increases size on hover */
+  box-shadow: 0px 4px 10px rgba(216, 199, 199, 0.3); /* Optional shadow for depth */
+  background-color: rgb(94, 94, 11) !important;
+}
+
+body.light .network-container .card {
+  background-color: #ffffff; /* Light background for card */
+  color: #000000;
+  border: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+body.light .network-container .card .card-title {
+  color: #000000; /* Dark color for card title */
+}
+
+body.light .network-container .card .card-text {
+  color: #333333; /* Slightly lighter color for card text */
+}
+
+/* Dark Theme Styles (as before) */
+
+body.dark .network-container .card {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border: none;
+}
+
+body.dark .network-container .card .card-title {
+  color: #ffffff;
+}
+
+body.dark .network-container .card .card-text {
+  color: #ffffff;
+}
+
+/* text font */
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.card-img-top {
+  height: 20rem; /* Default height for larger screens */
+}
+
+.network-img-top {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+}
+
+.layout {
+  height: calc(100vh - 63px);
+  overflow: auto;
+  margin-top: 76px;
+}
+
+.vedio-detail-height {
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 14rem; /* Adjust height for smaller screens */
+  }
+
+  .layout {
+    height: calc(100vh - 63px);
+    overflow: auto;
+    margin-top: 76px;
+  }
+
+  .vedio-detail-height {
+    height: 250px;
+  }
+}
+
+body.dark .episode-box {
+  background-color: #343a40;
+  padding: 2rem;
+  padding-top: 0rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+body.light .episode-box {
+  background-color: #e4e7e9;
+  padding: 1rem;
+  padding-top: 0rem;
+  border-radius: 1rem;
+  height: calc(100vh - 10rem);
+  overflow: auto;
+}
+
+body.dark .sugested-vedio-title {
+  padding: 0px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid grey;
+  position: sticky;
+  top: 0;
+  background-color: #343a40;
+}
+
+body.light .sugested-vedio-title {
+  padding: 0px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid grey;
+  position: sticky;
+  top: 0;
+  background-color: #e4e7e9;
+}
+
+body.light .border-suggested-vedio {
+  border: 1px solid black;
+}
+body.dark .border-suggested-vedio {
+  border: 1px solid white;
+}
+
+body.light .box {
+  background-color: white !important;
+}
+
+body.dark .box {
+  background-color: #343a40 !important;
+}
+
+.vignet {
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.7) 30%, transparent 83%);
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.7) 30%,
+    transparent 83%
+  );
+
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.7) 30%, transparent 83%);
+}
+
+/* styles.css */
+
+/* Light theme */
+body.light .theme {
+  background-color: white !important;
+  color: black !important;
+}
+
+body.light .theme-table th,
+body.light .theme-table td {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* body.light .theme-table tr:nth-child(odd) {
+  background-color: #e9ecef; 
+} */
+
+/* Dark theme */
+body.dark .theme {
+  background-color: #343a40 !important;
+  color: white !important;
+}
+
+body.dark .theme-table th,
+body.dark .theme-table td {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+/* body.dark .theme-table tr:nth-child(odd) {
+  background-color: #6c757d; 
+} */
+
+/* Dark theme styling for the card */
+body.dark .dashboard-card {
+  background-color: #343a40;
+  color: #ffffff;
+  border: 1px solid #495057;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .dashboard-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f8f9fa;
+}
+
+body.dark .dashboard-card-text {
+  font-size: 1.5rem;
+  color: #f1f3f5;
+}
+
+body.light .dashboard-card {
+  background-color: #ffff;
+  color: #343a40;
+  border: 1px solid #343a40;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.light .dashboard-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: "black";
+}
+
+body.light .dashboard-card-text {
+  font-size: 1.5rem;
+  color: "black";
+}
+
+body.dark .content-header {
+  background-color: #343a40;
+  color: #ffffff;
+  border: 1px solid #495057;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.light .content-header {
+  background-color: #ffffff;
+  color: #343a40;
+  border: 1px solid #343a40;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.remove-margin {
+  -bs-gutter-x: 0rem !important;
+}
+
+body.dark .network-text {
+  color: white;
+}
+
+body.light .network-text {
+  color: black;
+}
