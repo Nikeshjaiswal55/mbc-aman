@@ -17,6 +17,11 @@ import Browse from "./pages/Browse";
 import PrivateRoute from "./components/PrivateRoute";
 import LiveTvList from "./pages/LiveTvList";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
+import PodcastSeries from "./pages/PostCastSeries";
+import TVRadio from "./pages/TvRadio";
+import CommunitySuccess from "./pages/Community";
+import SupportUs from "./pages/SupportUs";
 
 const App = () => (
   <>
@@ -116,6 +121,45 @@ const App = () => (
             </Layout>
           }
         />
+         <Route
+          path="/contact-us"
+          element={
+            <Layout>
+              <Contact/>
+            </Layout>
+          }
+        />
+         <Route
+          path="/podcast-series"
+          element={
+            <Layout>
+              <PodcastSeries/>
+            </Layout>
+          }
+        /> <Route
+        path="/tv-radio"
+        element={
+          <Layout>
+            <TVRadio/>
+          </Layout>
+        }
+      />
+      <Route
+        path="/community"
+        element={
+          <Layout>
+            <CommunitySuccess/>
+          </Layout>
+        }
+      />
+      <Route
+        path="/support-us"
+        element={
+          <Layout>
+            <SupportUs/>
+          </Layout>
+        }
+      />
         <Route
           path="/sports"
           element={

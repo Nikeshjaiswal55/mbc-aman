@@ -1,0 +1,88 @@
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #eaeaea; /* White text for dark mode */
+}
+
+.dark-mode .form-label, 
+.dark-mode .form-control {
+  color: #eaeaea; /* Light label text */
+  background-color: #333333;
+  border-color: #444444;
+}
+
+.dark-mode .form-control:focus {
+  border-color: #6200ea;
+  box-shadow: 0 0 0 0.2rem rgba(98, 0, 234, 0.25);
+}
+
+.dark-mode .btn-primary {
+  background-color: #6200ea;
+  border-color: #6200ea;
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: #3700b3;
+  border-color: #3700b3;
+}
+
+/* Light Mode Styles */
+.light-mode {
+  background-color: #f8f9fa;
+  color: #212529; /* Default dark text for light mode */
+}
+
+.light-mode .form-label, 
+.light-mode .form-control {
+  background-color: #fff;
+  border-color: #ced4da;
+}
+
+.light-mode .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.light-mode .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.light-mode .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Google Map Embed Styles */
+.map-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio */
+  border-radius: 8px;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Form styling */
+form label {
+  font-weight: bold;
+}
+
+/* Styling for elements to enforce white text when needed */
+.dark-mode form label,
+.dark-mode form input,
+.dark-mode form textarea,
+.dark-mode .btn-primary {
+  color: white; /* Ensure all form elements have white text in dark mode */
+}
+#labels{
+color: black !important;
+}

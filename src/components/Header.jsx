@@ -43,12 +43,24 @@ const Header = () => {
       title: "Networks",
     },
     {
+      path: "/tv-radio",
+      title: "TV & Radio",
+    },
+    {
+      path: "/podcast-series",
+      title: "Podcast series",
+    },
+    {
       path: "#mbc-insider",
       title: "MBC Insider",
     },
     {
       path: "/about-us",
       title: "About us",
+    },
+    {
+      path: "/contact-us",
+      title: "Contact",
     },
   ];
 
