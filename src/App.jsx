@@ -22,6 +22,7 @@ import PodcastSeries from "./pages/PostCastSeries";
 import TVRadio from "./pages/TvRadio";
 import CommunitySuccess from "./pages/Community";
 import SupportUs from "./pages/SupportUs";
+import SportsSeries from "./pages/Sports";
 
 const App = () => (
   <>
@@ -164,12 +165,7 @@ const App = () => (
           path="/sports"
           element={
             <Layout>
-              <div
-                className=" d-flex justify-content-center align-items-center"
-                style={{ height: "100vh" }}
-              >
-                Coming soon...
-              </div>
+              <SportsSeries/>
             </Layout>
           }
         />
