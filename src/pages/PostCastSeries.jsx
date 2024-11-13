@@ -1,39 +1,52 @@
 import React, { useEffect, useState } from "react";
+import { NetworkScroller } from "../components/ScrollerGrid";
+import { fetchData } from "../service/apiService";
 import { useApi } from "../service/useApi";
 import { Card, Placeholder } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useFirebase } from "../context/firebase";
 
-function PodcastSeries() {
-  const [podcastSeries, setPodcastSeries] = useState([]);
-  const navigate = useNavigate();
-  const firebase = useFirebase();
+function PostcastSeries() {
+  const [networkOptions, setNetworkOptions] = useState([]);
 
-  async function fetchPodcastSeries() {
-    const response = await fetch("https://mbc-eight.vercel.app/api/podcast/view/");
-    const data = await response.json();
-    setPodcastSeries(data);
+  async function fetchNetworks() {
+    const response = await apiClient.get(
+      "https://mbc-eight.vercel.app/api/network/view/"
+    );
+    setNetworkOptions(response.data);
+    return {
+      data: response.data,
+      isLoading: false,
+      isError: false,
+      isSuccess: true,
+    };
   }
-
-  const {
-    data: featuredPodcastData,
-    callApi: fetchFeaturedPodcast,
-    isLoading: podcastLoading,
-  } = useApi(fetchPodcastSeries);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchFeaturedPodcast("/api/podcast/featured");
+    fetchNetworks();
   }, []);
+  const {
+    data: featuredData,
+    callApi: feturedApiCall,
+    isLoading: featuredLoading,
+  } = useApi(fetchData);
+
+  useEffect(() => {
+    feturedApiCall("/api/section/featured");
+  }, []);
+
+  const firebase = useFirebase();
 
   return (
     <div className="container">
-      <h4 className="my-3" style={{ color: "white" }}>Podcast Series</h4>
-      <div className="row">
-        {podcastLoading
+      <h4 className="my-3">Podcast Series</h4>
+      <div className="row network-container">
+        {featuredLoading
           ? // Show placeholders while loading
             Array.from({ length: 6 }).map((_, index) => (
-              <div className="col-md-4 col-6" key={index}>
-                <Card className="podcast-card shadow-lg rounded m-2" style={{ backgroundColor: "#333", color: "#eaeaea" }}>
+              <div className="col-4" key={index}>
+                <Card className="show-card shadow-lg rounded m-2">
                   <Placeholder
                     as={Card.Img}
                     variant="top"
@@ -52,19 +65,17 @@ function PodcastSeries() {
               </div>
             ))
           : // Show actual data once loaded
-            featuredPodcastData?.data?.featured?.map((podcast, index) => (
+            featuredData?.data?.featured?.data?.map((item, index) => (
               <div className="col-md-4 col-6" key={index}>
                 <Card
-                  className="podcast-card shadow-lg rounded"
+                  className="show-card shadow-lg rounded"
                   style={{
                     overflow: "hidden",
-                    backgroundColor: "#333", // Dark background color for the card
-                    color: "#eaeaea", // Light text color for contrast
                     border: "none",
                     textAlign: "center",
                     margin: "10px",
                   }}
-                  onClick={() => navigate(`/podcast-detail/${podcast?.id}`)}
+                  onClick={() => navigate(`/video-detail/${item?.id}`)}
                 >
                   <Card.Img
                     variant="top"
@@ -72,7 +83,7 @@ function PodcastSeries() {
                       height: "12rem",
                       objectFit: "cover",
                     }}
-                    src={`${firebase.imageUrl}${podcast?.image}`}
+                    src={`${firebase.imageUrllandscape}${item?.image.landscape}`}
                     className="img-fluid"
                   />
                   <Card.Body>
@@ -81,18 +92,16 @@ function PodcastSeries() {
                       style={{
                         fontWeight: "bold",
                         fontSize: "1.2rem",
-                        color: "#eaeaea", // Light text color for title
                         padding: "0px",
                         marginBottom: "2px",
                       }}
                     >
-                      {podcast.title}
+                      {item.title}
                     </Card.Title>
                     <Card.Text
                       className="poppins-regular text-start"
                       style={{
                         fontSize: "1rem",
-                        color: "#cccccc", // Slightly lighter text for description
                         padding: "0px",
                         marginBottom: "2px",
                         display: "-webkit-box",
@@ -102,7 +111,7 @@ function PodcastSeries() {
                         textOverflow: "ellipsis",
                       }}
                     >
-                      {podcast.description}
+                      {item.description}
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -113,4 +122,4 @@ function PodcastSeries() {
   );
 }
 
-export default PodcastSeries;
+export default PostcastSeries;

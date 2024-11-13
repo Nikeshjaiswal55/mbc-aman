@@ -1,39 +1,52 @@
 import React, { useEffect, useState } from "react";
+import { NetworkScroller } from "../components/ScrollerGrid";
+import { fetchData } from "../service/apiService";
 import { useApi } from "../service/useApi";
 import { Card, Placeholder } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useFirebase } from "../context/firebase";
 
 function SportsSeries() {
-  const [sportsSeries, setSportsSeries] = useState([]);
-  const navigate = useNavigate();
-  const firebase = useFirebase();
+  const [networkOptions, setNetworkOptions] = useState([]);
 
-  async function fetchSportsSeries() {
-    const response = await fetch("https://your-api-endpoint.com/api/sports/view/");
-    const data = await response.json();
-    setSportsSeries(data);
+  async function fetchNetworks() {
+    const response = await apiClient.get(
+      "https://mbc-eight.vercel.app/api/network/view/"
+    );
+    setNetworkOptions(response.data);
+    return {
+      data: response.data,
+      isLoading: false,
+      isError: false,
+      isSuccess: true,
+    };
   }
-
-  const {
-    data: featuredSportsData,
-    callApi: fetchFeaturedSports,
-    isLoading: sportsLoading,
-  } = useApi(fetchSportsSeries);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchFeaturedSports("/api/sports/featured");
+    fetchNetworks();
   }, []);
+  const {
+    data: featuredData,
+    callApi: feturedApiCall,
+    isLoading: featuredLoading,
+  } = useApi(fetchData);
+
+  useEffect(() => {
+    feturedApiCall("/api/section/featured");
+  }, []);
+
+  const firebase = useFirebase();
 
   return (
     <div className="container">
-      <h4 className="my-3" style={{ color: "white" }}>Sports Series</h4>
-      <div className="row">
-        {sportsLoading
+      <h4 className="my-3">Sports</h4>
+      <div className="row network-container">
+        {featuredLoading
           ? // Show placeholders while loading
             Array.from({ length: 6 }).map((_, index) => (
-              <div className="col-md-4 col-6" key={index}>
-                <Card className="sports-card shadow-lg rounded m-2" style={{ backgroundColor: "#333", color: "#eaeaea" }}>
+              <div className="col-4" key={index}>
+                <Card className="show-card shadow-lg rounded m-2">
                   <Placeholder
                     as={Card.Img}
                     variant="top"
@@ -52,19 +65,17 @@ function SportsSeries() {
               </div>
             ))
           : // Show actual data once loaded
-            featuredSportsData?.data?.featured?.map((sport, index) => (
+            featuredData?.data?.featured?.data?.map((item, index) => (
               <div className="col-md-4 col-6" key={index}>
                 <Card
-                  className="sports-card shadow-lg rounded"
+                  className="show-card shadow-lg rounded"
                   style={{
                     overflow: "hidden",
-                    backgroundColor: "#333", // Dark background color for the card
-                    color: "#eaeaea", // Light text color for contrast
                     border: "none",
                     textAlign: "center",
                     margin: "10px",
                   }}
-                  onClick={() => navigate(`/sports-detail/${sport?.id}`)}
+                  onClick={() => navigate(`/video-detail/${item?.id}`)}
                 >
                   <Card.Img
                     variant="top"
@@ -72,7 +83,7 @@ function SportsSeries() {
                       height: "12rem",
                       objectFit: "cover",
                     }}
-                    src={`${firebase.imageUrl}${sport?.image}`}
+                    src={`${firebase.imageUrllandscape}${item?.image.landscape}`}
                     className="img-fluid"
                   />
                   <Card.Body>
@@ -81,18 +92,16 @@ function SportsSeries() {
                       style={{
                         fontWeight: "bold",
                         fontSize: "1.2rem",
-                        color: "#eaeaea", // Light text color for title
                         padding: "0px",
                         marginBottom: "2px",
                       }}
                     >
-                      {sport.title}
+                      {item.title}
                     </Card.Title>
                     <Card.Text
                       className="poppins-regular text-start"
                       style={{
                         fontSize: "1rem",
-                        color: "#cccccc", // Slightly lighter text for description
                         padding: "0px",
                         marginBottom: "2px",
                         display: "-webkit-box",
@@ -102,7 +111,7 @@ function SportsSeries() {
                         textOverflow: "ellipsis",
                       }}
                     >
-                      {sport.description}
+                      {item.description}
                     </Card.Text>
                   </Card.Body>
                 </Card>

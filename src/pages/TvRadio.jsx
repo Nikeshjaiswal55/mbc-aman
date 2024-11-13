@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useApi } from "../service/useApi";
+import { fetchData } from "../service/apiService";
 import { Card, Placeholder } from "react-bootstrap";
 import apiClient from "../service/apiClient";
 import { useNavigate } from "react-router-dom";
 
-export default function TVRadioList() {
+export default function TvRadioList() {
   const [networkOptions, setNetworkOptions] = useState([]);
   const [isLoading, setLoading] = useState(true);
+
   const [bgColor, setBgColor] = useState("");
 
   // Function to generate a random color
@@ -22,16 +25,21 @@ export default function TVRadioList() {
 
   async function fetchNetworks() {
     const response = await apiClient.get(
-      "https://example.com/api/tvradio/view/" // Change this to your actual API endpoint
+      "https://mbc-eight.vercel.app/api/network/view/"
     );
     setNetworkOptions(response.data);
     setLoading(false);
+    return {
+      data: response.data,
+      isLoading: false,
+      isError: false,
+      isSuccess: true,
+    };
   }
 
   useEffect(() => {
     fetchNetworks();
   }, []);
-
   const navigate = useNavigate();
 
   return (
@@ -59,9 +67,10 @@ export default function TVRadioList() {
                 </Card>
               </div>
             ))
-          : networkOptions?.map((item) => (
-              <div className="col-md-4 col-6" key={item?.network_id}>
+          : networkOptions?.data?.map((item) => (
+              <div className="col-md-4 col-6">
                 <Card
+                  key={item?.network_id}
                   className="show-card shadow-lg rounded"
                   style={{
                     backgroundColor: bgColor,
@@ -70,24 +79,33 @@ export default function TVRadioList() {
                     textAlign: "center",
                     margin: "10px",
                   }}
-                  onClick={() => navigate(`/details/${item?.network_id}`)} // You can change this path for each network's detailed page
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  onClick={() => navigate("/browse")}
                 >
                   <div
                     variant="top"
                     style={{
                       height: "12rem",
-                      backgroundImage: `url(${item?.image_url})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
                     }}
-                    className="d-flex justify-content-center align-items-center"
+                    src={item.network_image}
+                    className=" d-flex justify-content-center align-items-center"
                   >
                     <h4 className="network-text poppins-semibold text-capitalize">
-                      {item?.name}
+                      {item.name}
                     </h4>
                   </div>
+                  {/* <Card.Body>
+                    <Card.Title
+                      className="poppins-regular text-start"
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "1.2rem",
+                        padding: "0px",
+                        marginBottom: "2px",
+                      }}
+                    >
+                      {item.name}
+                    </Card.Title>
+                  </Card.Body> */}
                 </Card>
               </div>
             ))}
