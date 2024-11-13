@@ -27,13 +27,13 @@ function TVRadio() {
 
   return (
     <div className="container">
-      <h4 className="my-3">TV and Radio Shows</h4>
+      <h4 className="my-3" style={{ color: "white" }}>TV and Radio Shows</h4>
       <div className="row">
         {tvRadioLoading
           ? // Show placeholders while loading
             Array.from({ length: 6 }).map((_, index) => (
               <div className="col-md-4 col-6" key={index}>
-                <Card className="tv-radio-card shadow-lg rounded m-2">
+                <Card className="tv-radio-card shadow-lg rounded m-2" style={{ backgroundColor: "#333", color: "#eaeaea" }}>
                   <Placeholder
                     as={Card.Img}
                     variant="top"
@@ -58,6 +58,8 @@ function TVRadio() {
                   className="tv-radio-card shadow-lg rounded"
                   style={{
                     overflow: "hidden",
+                    backgroundColor: "#333", // Dark background color for the card
+                    color: "#eaeaea", // Light text color for contrast
                     border: "none",
                     textAlign: "center",
                     margin: "10px",
@@ -79,6 +81,7 @@ function TVRadio() {
                       style={{
                         fontWeight: "bold",
                         fontSize: "1.2rem",
+                        color: "#eaeaea", // Light text color for title
                         padding: "0px",
                         marginBottom: "2px",
                       }}
@@ -89,6 +92,7 @@ function TVRadio() {
                       className="poppins-regular text-start"
                       style={{
                         fontSize: "1rem",
+                        color: "#cccccc", // Slightly lighter text for description
                         padding: "0px",
                         marginBottom: "2px",
                         display: "-webkit-box",

@@ -64,7 +64,7 @@ function Contact() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label"id="labels">Email</label>
+              <label htmlFor="email" className="form-label" id="labels">Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -76,7 +76,7 @@ function Contact() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="subject" className="form-label"id="labels">Subject</label>
+              <label htmlFor="subject" className="form-label" id="labels">Subject</label>
               <input
                 type="text"
                 className="form-control"
@@ -87,7 +87,7 @@ function Contact() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="message" className="form-label"id="labels">Message</label>
+              <label htmlFor="message" className="form-label" id="labels">Message</label>
               <textarea
                 className="form-control"
                 id="message"
@@ -98,10 +98,20 @@ function Contact() {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary w-100">Submit</button>
+            <button
+              type="submit"
+              className="btn w-100"
+              style={{
+                backgroundColor: '#808080', // Grey background color
+                borderColor: '#808080', // Grey border color
+                color: '#ffffff' // Optional: White text color for contrast
+              }}
+            >
+              Submit
+            </button>
           </form>
         </Col>
-      </Row>
+      </Row>za
     </Container>
   );
 }

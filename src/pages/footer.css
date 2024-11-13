@@ -1,29 +1,29 @@
 /* Dark Mode Styles */
 .dark-mode {
   background-color: #121212;
-  color: #eaeaea; /* White text for dark mode */
+  color: #eaeaea; /* Light text for dark mode */
 }
 
 .dark-mode .form-label, 
 .dark-mode .form-control {
   color: #eaeaea; /* Light label text */
   background-color: #333333;
-  border-color: #444444;
+  border-color: #555555; /* Grey border color */
 }
 
 .dark-mode .form-control:focus {
-  border-color: #6200ea;
-  box-shadow: 0 0 0 0.2rem rgba(98, 0, 234, 0.25);
+  border-color: #808080; /* Grey focus color */
+  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.25); /* Grey shadow */
 }
 
 .dark-mode .btn-primary {
-  background-color: #6200ea;
-  border-color: #6200ea;
+  background-color: #808080; /* Grey button background */
+  border-color: #808080; /* Grey border */
 }
 
 .dark-mode .btn-primary:hover {
-  background-color: #3700b3;
-  border-color: #3700b3;
+  background-color: #666666; /* Darker grey on hover */
+  border-color: #666666;
 }
 
 /* Light Mode Styles */
@@ -39,18 +39,18 @@
 }
 
 .light-mode .form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #808080; /* Grey focus color */
+  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.25); /* Grey shadow */
 }
 
 .light-mode .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #808080; /* Grey button background */
+  border-color: #808080;
 }
 
 .light-mode .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #666666; /* Darker grey on hover */
+  border-color: #666666;
 }
 
 /* Google Map Embed Styles */
@@ -83,6 +83,8 @@ form label {
 .dark-mode .btn-primary {
   color: white; /* Ensure all form elements have white text in dark mode */
 }
-#labels{
-color: black !important;
+
+/* Adjusted color for labels to grey */
+#labels {
+  color: #808080 !important; /* Grey color */
 }

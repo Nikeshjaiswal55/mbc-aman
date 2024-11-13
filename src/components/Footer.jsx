@@ -42,9 +42,8 @@ const Footer = () => (
         <Col md={4}>
           <h5>More Information</h5>
           <ul className="list-unstyled">
-            <li>NBC App</li>
+            <li>MBC App</li>
             <li>Peacock</li>
-            <li>Advertise</li>
             <li>Closed Captioning</li>
             <li>Parental Guidelines and TV Ratings</li>
             <li>Video Viewing Policy</li>
