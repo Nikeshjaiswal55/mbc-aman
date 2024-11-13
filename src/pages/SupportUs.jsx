@@ -18,14 +18,14 @@ function SupportUs() {
         </p>
         <div className="donation-options">
           <p className="mb-3"><strong>Select a Donation Amount:</strong></p>
-          <button className="btn btn-primary m-2">$10</button>
-          <button className="btn btn-primary m-2">$25</button>
-          <button className="btn btn-primary m-2">$50</button>
-          <button className="btn btn-primary m-2">$100</button>
-          <button className="btn btn-primary m-2">Other</button>
+          <button className="btn btn-secondary m-2">$10</button>
+          <button className="btn btn-secondary m-2">$25</button>
+          <button className="btn btn-secondary m-2">$50</button>
+          <button className="btn btn-secondary m-2">$100</button>
+          <button className="btn btn-secondary m-2">Other</button>
         </div>
         <p className="mt-4">
-          <a href="/donate" className="btn btn-outline-primary">
+          <a href="/donate" className="btn btn-outline-secondary">
             Go to Donation Page
           </a>
         </p>
@@ -49,7 +49,7 @@ function SupportUs() {
         </p>
         <div className="volunteer-cta">
           <p className="mt-4">
-            <a href="/volunteer" className="btn btn-outline-primary">
+            <a href="/volunteer" className="btn btn-outline-secondary">
               See Volunteer Opportunities
             </a>
           </p>

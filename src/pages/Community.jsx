@@ -20,7 +20,7 @@ const LocalPartnerships = () => (
               create opportunities that benefit both sides. Our collaborative
               approach ensures sustainable growth and a lasting impact.
             </p>
-            <button className="btn btn-dark">Learn More</button>
+            <button className="btn btn-secondary">Learn More</button>
           </div>
         </div>
         <div className="col-md-6 mb-4">
@@ -31,7 +31,7 @@ const LocalPartnerships = () => (
               initiatives and contribute resources that help further their mission
               in the community.
             </p>
-            <button className="btn btn-dark">Learn More</button>
+            <button className="btn btn-secondary">Learn More</button>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ const LocalPartnerships = () => (
               Learn about available grants and funding opportunities that can help
               you take your initiatives to the next level.
             </p>
-            <button className="btn btn-dark">Explore</button>
+            <button className="btn btn-secondary">Explore</button>
           </div>
         </div>
         <div className="col-md-4 mb-4">
@@ -65,7 +65,7 @@ const LocalPartnerships = () => (
               Our community programs foster networking and connection-building,
               helping you grow your business or nonprofit in meaningful ways.
             </p>
-            <button className="btn btn-dark">Join Us</button>
+            <button className="btn btn-secondary">Join Us</button>
           </div>
         </div>
         <div className="col-md-4 mb-4">
@@ -75,7 +75,7 @@ const LocalPartnerships = () => (
               From social media promotions to website enhancements, we provide
               marketing tools and expertise to elevate your efforts.
             </p>
-            <button className="btn btn-dark">Get Started</button>
+            <button className="btn btn-secondary">Get Started</button>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ const LocalPartnerships = () => (
 // Main Page Component
 const CommunitySuccess = () => (
   <div className="community-success">
-    <header className="text-center py-5 bg-primary text-white header">
+    <header className="text-center py-5 bg-secondary text-white header">
       <h1>Community Success Stories</h1>
       <p>Celebrating our local partnerships and resources for growth</p>
     </header>
