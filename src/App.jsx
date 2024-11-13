@@ -23,6 +23,7 @@ import TVRadio from "./pages/TvRadio";
 import CommunitySuccess from "./pages/Community";
 import SupportUs from "./pages/SupportUs";
 import SportsSeries from "./pages/Sports";
+import TvRadioList from "./pages/TvRadio";
 
 const App = () => (
   <>
@@ -39,6 +40,72 @@ const App = () => (
             </Layout>
           }
         />
+
+        <Route
+          path="/browse"
+          element={
+            <Layout>
+              <Browse />
+            </Layout>
+          }
+        />
+        <Route
+          path="/about-us"
+          element={
+            <Layout>
+              <About />
+            </Layout>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <Layout>
+              <Contact />
+            </Layout>
+          }
+        />
+        <Route
+          path="/podcast-series"
+          element={
+            <Layout>
+              <PodcastSeries />
+            </Layout>
+          }
+        /> <Route
+          path="/tv-radio"
+          element={
+            <Layout>
+              <NetworkList />
+            </Layout>
+          }
+        />
+        <Route
+          path="/community"
+          element={
+            <Layout>
+              <CommunitySuccess />
+            </Layout>
+          }
+        />
+        <Route
+          path="/support-us"
+          element={
+            <Layout>
+              <SupportUs />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sports"
+          element={
+            <Layout>
+              <SportsSeries />
+            </Layout>
+          }
+        />
+
+
         <Route
           path="/live-tv"
           element={
@@ -103,69 +170,6 @@ const App = () => (
           element={
             <Layout>
               <ShowDetail />
-            </Layout>
-          }
-        />
-        <Route
-          path="/browse"
-          element={
-            <Layout>
-              <Browse />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about-us"
-          element={
-            <Layout>
-              <About />
-            </Layout>
-          }
-        />
-         <Route
-          path="/contact-us"
-          element={
-            <Layout>
-              <Contact/>
-            </Layout>
-          }
-        />
-         <Route
-          path="/podcast-series"
-          element={
-            <Layout>
-              <PodcastSeries/>
-            </Layout>
-          }
-        /> <Route
-        path="/tv-radio"
-        element={
-          <Layout>
-            <TVRadio/>
-          </Layout>
-        }
-      />
-      <Route
-        path="/community"
-        element={
-          <Layout>
-            <CommunitySuccess/>
-          </Layout>
-        }
-      />
-      <Route
-        path="/support-us"
-        element={
-          <Layout>
-            <SupportUs/>
-          </Layout>
-        }
-      />
-        <Route
-          path="/sports"
-          element={
-            <Layout>
-              <SportsSeries/>
             </Layout>
           }
         />
