@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
-import logo from "../assets/mbc_logo.jpeg";
+import logo from "../assets/mbc_logo.png";
 import peackokPreview from "../assets/peacock_preview.png";
 import { useFirebase } from "../context/firebase";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,6 +27,10 @@ const Header = () => {
       title: "Home",
     },
     {
+      path: "/about-us",
+      title: "About us",
+    },
+    {
       path: "/browse",
       title: "Browse",
     },
@@ -51,13 +55,10 @@ const Header = () => {
       title: "Podcast series",
     },
     {
-      path: "#mbc-insider",
-      title: "MBC Insider",
+      path: "#community",
+      title: "Community",
     },
-    {
-      path: "/about-us",
-      title: "About us",
-    },
+   
     {
       path: "/contact-us",
       title: "Contact",
