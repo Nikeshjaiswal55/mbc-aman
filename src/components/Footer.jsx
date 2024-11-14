@@ -1,40 +1,43 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="footer bg-dark text-light py-5">
     <Container>
-     
       <Row className="text-center text-md-left">
         <Col md={4}>
           <h5>Quick Links</h5>
           <ul className="list-unstyled">
             <li>
-              <a href="/contact-us" className="text-light footer-link">
+              <Link to="/contact-us" className="text-light footer-link">
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/support-us" className="text-light footer-link">
-              Support Us
-              </a>
-            </li> 
+              <Link to="/support-us" className="text-light footer-link">
+                Support Us
+              </Link>
+            </li>
             <li>
-              <a href="/community" className="text-light footer-link">
-              Community
-              </a>
-            </li> 
+              <Link to="/community" className="text-light footer-link">
+                Community
+              </Link>
+            </li>
             <li>
-              <a href="https://share.hsforms.com/1JnEGpFXOSL2uwigAPGZwvwsnh76" className="text-light footer-link">
-              Advertise with Us
+              <a
+                href="https://share.hsforms.com/1JnEGpFXOSL2uwigAPGZwvwsnh76"
+                className="text-light footer-link"
+                target="_blank"
+              >
+                Advertise with Us
               </a>
-            </li> 
+            </li>
           </ul>
         </Col>
         <Col md={4}>
           <h5>Policies</h5>
           <ul className="list-unstyled">
-            
             <li>Cookie Notice</li>
             <li>CA Notice</li>
           </ul>
