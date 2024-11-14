@@ -76,7 +76,7 @@ const App = () => (
           path="/tv-radio"
           element={
             <Layout>
-              <NetworkList />
+              <TVRadio/>
             </Layout>
           }
         />

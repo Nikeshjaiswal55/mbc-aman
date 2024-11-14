@@ -37,7 +37,7 @@ function SportsSeries() {
   }, []);
 
   return (
-    <div className="container" style={{ backgroundColor: "white" }}>
+    <div className="container">
       <h4 className="my-3">Sports Series</h4>
       <div className="row network-container" style={{ color: "black" }}>
         {sportLoading ? (
