@@ -1,57 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { NetworkScroller } from "../components/ScrollerGrid";
-import { fetchData } from "../service/apiService";
-import { useApi } from "../service/useApi";
 import { Card, Placeholder } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useFirebase } from "../context/firebase";
+import axios from "axios";
 
 function SportsSeries() {
-  const [networkOptions, setNetworkOptions] = useState([]);
-
-  async function fetchNetworks() {
-    const response = await apiClient.get(
-      "https://mbc-eight.vercel.app/api/network/view/"
-    );
-    setNetworkOptions(response.data);
-    return {
-      data: response.data,
-      isLoading: false,
-      isError: false,
-      isSuccess: true,
-    };
-  }
+  const [sportsData, setSportsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchNetworks();
-  }, []);
-  const {
-    data: featuredData,
-    callApi: feturedApiCall,
-    isLoading: featuredLoading,
-  } = useApi(fetchData);
-
-  useEffect(() => {
-    feturedApiCall("/api/section/featured");
-  }, []);
-
   const firebase = useFirebase();
 
+  const fetchSportsData = async () => {
+    try {
+      const response = await axios.get(
+        "https://script.viserlab.com/playlab/demo/api/search?category_id=3"
+      );
+      console.log("API response:", response.data);
+      setSportsData(response.data.data || []);
+    } catch (error) {
+      console.error("Error fetching sports data:", error.message || error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchSportsData();
+  }, []);
+
   return (
-    <div className="container">
-      <h4 className="my-3">Sports</h4>
-      <div className="row network-container">
-        {featuredLoading
-          ? // Show placeholders while loading
-            Array.from({ length: 6 }).map((_, index) => (
-              <div className="col-4" key={index}>
+    <div className="container" style={{ backgroundColor: "white" }}>
+      <h4 className="my-3">Sports Series</h4>
+      <div className="row network-container" style={{ color: "black" }}>
+        {isLoading
+          ? Array.from({ length: 6 }).map((_, index) => (
+              <div className="col-md-4 col-6" key={index}>
                 <Card className="show-card shadow-lg rounded m-2">
-                  <Placeholder
-                    as={Card.Img}
-                    variant="top"
-                    style={{ height: "12rem" }}
-                  />
+                  <Placeholder as={Card.Img} variant="top" style={{ height: "12rem" }} />
                   <Card.Body>
                     <Placeholder as={Card.Title} animation="glow">
                       <Placeholder xs={6} />
@@ -64,9 +49,9 @@ function SportsSeries() {
                 </Card>
               </div>
             ))
-          : // Show actual data once loaded
-            featuredData?.data?.featured?.data?.map((item, index) => (
-              <div className="col-md-4 col-6" key={index}>
+          : sportsData.length > 0
+          ? sportsData.map((item) => (
+              <div className="col-md-4 col-6" key={item.id}>
                 <Card
                   className="show-card shadow-lg rounded"
                   style={{
@@ -74,17 +59,18 @@ function SportsSeries() {
                     border: "none",
                     textAlign: "center",
                     margin: "10px",
+                    color: "black",
                   }}
-                  onClick={() => navigate(`/video-detail/${item?.id}`)}
+                  onClick={() => navigate(`/video-detail/${item.id}`)}
                 >
                   <Card.Img
                     variant="top"
-                    style={{
-                      height: "12rem",
-                      objectFit: "cover",
-                    }}
-                    src={`${firebase.imageUrllandscape}${item?.image.landscape}`}
+                    style={{ height: "12rem", objectFit: "cover" }}
+                    src={`${firebase.imageUrllandscape}/${item.image?.landscape || ""}`}
                     className="img-fluid"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
                   />
                   <Card.Body>
                     <Card.Title
@@ -96,7 +82,7 @@ function SportsSeries() {
                         marginBottom: "2px",
                       }}
                     >
-                      {item.title}
+                      {item.title || "No title available"}
                     </Card.Title>
                     <Card.Text
                       className="poppins-regular text-start"
@@ -111,12 +97,15 @@ function SportsSeries() {
                         textOverflow: "ellipsis",
                       }}
                     >
-                      {item.description}
+                      {item.description || "No description available"}
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </div>
-            ))}
+            ))
+          : (
+            <p className="text-center">No sports series available.</p>
+          )}
       </div>
     </div>
   );
