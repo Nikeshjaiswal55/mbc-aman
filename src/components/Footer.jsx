@@ -25,6 +25,11 @@ const Footer = () => (
               </Link>
             </li>
             <li>
+              <Link to="/app-download" className="text-light footer-link">
+                App Download
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://share.hsforms.com/1JnEGpFXOSL2uwigAPGZwvwsnh76"
                 className="text-light footer-link"

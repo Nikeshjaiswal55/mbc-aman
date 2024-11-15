@@ -24,6 +24,7 @@ import CommunitySuccess from "./pages/Community";
 import SupportUs from "./pages/SupportUs";
 import SportsSeries from "./pages/Sports";
 import TvRadioList from "./pages/TvRadio";
+import AppDownload from "./pages/AppDownload";
 
 const App = () => (
   <>
@@ -152,6 +153,14 @@ const App = () => (
                 <AdminNetworkList />
               </Layout>
             </PrivateRoute>
+          }
+        />
+         <Route
+          path="/app-download"
+          element={
+            <Layout>
+              <AppDownload/>
+            </Layout>
           }
         />
         <Route

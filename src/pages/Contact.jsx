@@ -111,7 +111,7 @@ function Contact() {
             </button>
           </form>
         </Col>
-      </Row>za
+      </Row>
     </Container>
   );
 }
