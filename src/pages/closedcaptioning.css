@@ -1,0 +1,75 @@
+/* Base styles */
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #0073e6;
+    color: #fff;
+}
+
+.content h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.separator {
+    font-size: 1.5em;
+    color: #999;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.content address {
+    font-style: normal;
+    margin-top: 10px;
+}
+
+.content a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Light theme */
+.light-theme {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.light-theme .theme-toggle {
+    background-color: #0073e6;
+    color: #fff;
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+}
+
+.dark-theme .theme-toggle {
+    background-color: #ffc107;
+    color: #000;
+}

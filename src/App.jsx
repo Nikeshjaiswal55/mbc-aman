@@ -25,6 +25,8 @@ import SupportUs from "./pages/SupportUs";
 import SportsSeries from "./pages/Sports";
 import TvRadioList from "./pages/TvRadio";
 import AppDownload from "./pages/AppDownload";
+import ClosedCaptioning from "./pages/ClosedCaptioning";
+import Shop from "./pages/Shop";
 
 const App = () => (
   <>
@@ -160,6 +162,20 @@ const App = () => (
           element={
             <Layout>
               <AppDownload/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+              <Shop/>
+          }
+        />
+          <Route
+          path="/closed-captioning"
+          element={
+            <Layout>
+              <ClosedCaptioning/>
             </Layout>
           }
         />

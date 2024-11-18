@@ -30,10 +30,21 @@ const Footer = () => (
               </Link>
             </li>
             <li>
+              <Link to="/closed-captioning" className="text-light footer-link">
+                Closed Captioning
+              </Link>
+            </li>
+            <li>
+              <Link to="/shop" className="text-light footer-link">
+                Shop
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://share.hsforms.com/1JnEGpFXOSL2uwigAPGZwvwsnh76"
                 className="text-light footer-link"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Advertise with Us
               </a>
@@ -93,9 +104,13 @@ const Footer = () => (
         background: linear-gradient(45deg, #111, #333);
         color: #ddd;
       }
+      .footer-link {
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease; /* Smooth transition */
+      }
       .footer-link:hover {
-        text-decoration: underline;
-        color: #fff;
+        text-decoration: none; /* Ensure underline stays off */
+        color: #ffd700; /* Hover color effect */
       }
       h5 {
         font-weight: bold;
